@@ -13,6 +13,7 @@
  */
 package io.hpdevelop.trino.systemaccesscontrol;
 
+import io.trino.spi.security.Identity;
 import io.trino.spi.security.SystemAccessControl;
 import io.trino.spi.security.SystemSecurityContext;
 import io.trino.spi.security.TrinoPrincipal;
@@ -40,6 +41,7 @@ public class RbacSystemAccessControl
     @Override
     public void checkCanCreateRole(SystemSecurityContext context, String role, Optional<TrinoPrincipal> grantor)
     {
+        Identity identity = context.getIdentity();
         String result = role + "plugin test~~";
         denyCreateRole(result);
     }

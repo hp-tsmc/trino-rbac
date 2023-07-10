@@ -23,7 +23,7 @@ public class RbacSystemAccessControlFactory
     @Override
     public String getName()
     {
-        return "rbac-hpdevelop";
+        return "rbac-hpdevelop";// access-control.name=rbac-hpdevelop
     }
 
     @Override

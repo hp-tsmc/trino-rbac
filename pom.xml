@@ -10,10 +10,10 @@
     </parent> -->
 
     <groupId>io.hpdevelop</groupId>
-    <artifactId>trino.systemaccesscontrol</artifactId>
+    <artifactId>trino-systemaccesscontrol</artifactId>
     <version>0.1</version>
-    <name>rbacsystemaccesscontrol</name>
-    <packaging>jar</packaging>
+    <!-- <name>rbacsystemaccesscontrol</name> -->
+    <!-- <packaging>trino-plugin</packaging> -->
 
     <properties>
         <air.main.basedir>${project.parent.basedir}</air.main.basedir>

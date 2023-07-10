@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.3.3">
+<file name="/home/kasm-user/trino-user-authorization/src/main/java/io/hpdevelop/trino/systemaccesscontrol/RbacSystemAccessControlPlugin.java">
+</file>
+<file name="/home/kasm-user/trino-user-authorization/src/main/java/io/hpdevelop/trino/systemaccesscontrol/RbacSystemAccessControlFactory.java">
+</file>
+<file name="/home/kasm-user/trino-user-authorization/src/main/java/io/hpdevelop/trino/systemaccesscontrol/RbacSystemAccessControl.java">
+</file>
+<file name="/home/kasm-user/trino-user-authorization/src/main/resources/rbac.properties">
+</file>
+</checkstyle>

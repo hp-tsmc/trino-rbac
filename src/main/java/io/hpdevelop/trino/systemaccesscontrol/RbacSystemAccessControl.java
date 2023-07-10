@@ -17,6 +17,7 @@ import io.trino.spi.security.SystemAccessControl;
 import io.trino.spi.security.SystemSecurityContext;
 import io.trino.spi.security.TrinoPrincipal;
 
+import java.util.Map;
 import java.util.Optional;
 
 import static io.trino.spi.security.AccessDeniedException.denyCreateRole;

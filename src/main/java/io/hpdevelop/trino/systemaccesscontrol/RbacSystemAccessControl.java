@@ -41,6 +41,6 @@ public class RbacSystemAccessControl
     public void checkCanCreateRole(SystemSecurityContext context, String role, Optional<TrinoPrincipal> grantor)
     {
         String result = role + "plugin test~~";
-        denyCreateRole(role);
+        denyCreateRole(result);
     }
 }

@@ -2,18 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
+    <!-- <parent>
         <groupId>io.trino</groupId>
         <artifactId>trino-root</artifactId>
         <version>407</version>
         <relativePath>../../pom.xml</relativePath>
-    </parent>
+    </parent> -->
 
     <groupId>io.hpdevelop</groupId>
     <artifactId>trino.systemaccesscontrol</artifactId>
     <version>0.1</version>
     <name>rbacsystemaccesscontrol</name>
-    <packaging>trino-plugin</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <air.main.basedir>${project.parent.basedir}</air.main.basedir>
@@ -27,7 +27,7 @@
     <dependencies>
 
 
-        <dependency>
+        <!-- <dependency>
             <groupId>io.airlift</groupId>
             <artifactId>json</artifactId>
         </dependency>
@@ -35,9 +35,9 @@
         <dependency>
             <groupId>io.airlift</groupId>
             <artifactId>testing</artifactId>
-        </dependency>
+        </dependency> -->
 
-        <dependency>
+        <!-- <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
@@ -50,9 +50,9 @@
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency> -->
 
-        <dependency>
+        <!-- <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
@@ -60,9 +60,9 @@
         <dependency>
             <groupId>it.unimi.dsi</groupId>
             <artifactId>fastutil</artifactId>
-        </dependency>
+        </dependency> -->
 
-        <dependency>
+        <!-- <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
         </dependency>
@@ -80,9 +80,9 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-        </dependency>
+        </dependency> -->
 
-        <dependency>
+        <!-- <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
         </dependency>
@@ -90,7 +90,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-        </dependency>
+        </dependency> -->
 
                 <!-- Presto SPI -->
         <dependency>
@@ -102,12 +102,14 @@
         <dependency>
             <groupId>io.airlift</groupId>
             <artifactId>slice</artifactId>
+            <version>0.45</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
+            <version>2.15.2</version>
             <scope>provided</scope>
         </dependency>
 
@@ -116,6 +118,7 @@
         <dependency>
             <groupId>org.openjdk.jol</groupId>
             <artifactId>jol-core</artifactId>
+            <version>0.17</version>
             <scope>provided</scope>
         </dependency>
 
@@ -141,11 +144,10 @@
         </resources>
 
         <plugins>
-            <plugin>
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <dependencies>
-                    <!-- allow both JUnit and TestNG -->
                     <dependency>
                         <groupId>org.apache.maven.surefire</groupId>
                         <artifactId>surefire-junit-platform</artifactId>
@@ -246,7 +248,7 @@
                         </revapi.differences>
                     </analysisConfiguration>
                 </configuration>
-            </plugin>
+            </plugin> -->
         </plugins>
     </build>
 </project>

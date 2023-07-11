@@ -27,12 +27,13 @@
     <dependencies>
 
 
-        <!-- <dependency>
+        <dependency>
             <groupId>io.airlift</groupId>
-            <artifactId>json</artifactId>
+            <version>234</version>
+            <artifactId>log</artifactId>
         </dependency>
 
-        <dependency>
+        <!-- dependency>
             <groupId>io.airlift</groupId>
             <artifactId>testing</artifactId>
         </dependency> -->

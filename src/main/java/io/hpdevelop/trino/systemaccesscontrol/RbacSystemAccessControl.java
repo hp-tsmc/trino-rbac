@@ -18,15 +18,24 @@ import io.trino.spi.security.SystemAccessControl;
 import io.trino.spi.security.SystemSecurityContext;
 import io.trino.spi.security.TrinoPrincipal;
 
+// import io.airlift.log.Logger;
+
+import java.util.logging.Logger;
 import java.util.Map;
 import java.util.Optional;
+import java.security.Principal;
 
 import static io.trino.spi.security.AccessDeniedException.denyCreateRole;
+import static io.trino.spi.security.AccessDeniedException.denySetUser;
+import static io.trino.spi.security.AccessDeniedException.denyExecuteQuery;
+import static io.trino.spi.security.AccessDeniedException.denyImpersonateUser;
+import static java.util.logging.Level.INFO;
 
 public class RbacSystemAccessControl
         implements SystemAccessControl
 {
     private final String dbUrl;
+    private static final Logger log = Logger.getLogger("rbac");
 
     RbacSystemAccessControl(Map<String, String> config)
     {
@@ -41,8 +50,52 @@ public class RbacSystemAccessControl
     @Override
     public void checkCanCreateRole(SystemSecurityContext context, String role, Optional<TrinoPrincipal> grantor)
     {
-        Identity identity = context.getIdentity();
-        String result = role + "plugin test~~";
-        denyCreateRole(result);
+        String userName = context.getIdentity().getUser();
+        String logs = "checking if can create role "+role+" to user "+userName;
+        log.log(INFO,logs);
+        denyCreateRole(userName);
+    }
+
+    /**
+     * Check if the identity is allowed impersonate the specified user.
+     *
+     * @throws AccessDeniedException if not allowed
+     */
+    public void checkCanImpersonateUser(SystemSecurityContext context, String userName)
+    {
+        String user = context.getIdentity().getUser();
+        String logs = "checking if can impersonate role "+user+" to user "+userName;
+        log.log(INFO,logs);
+        //denyImpersonateUser(context.getIdentity().getUser(), userName);
+    }
+
+    /**
+     * Check if the principal is allowed to be the specified user.
+     *
+     * @throws AccessDeniedException if not allowed
+     * @deprecated use user mapping and {@link #checkCanImpersonateUser} instead
+     */
+    @Override
+    @Deprecated
+    public void checkCanSetUser(Optional<Principal> principal, String userName)
+    {
+        return;
+        // denySetUser(principal, userName);
+    }
+
+    /**
+     * Checks if identity can execute a query.
+     *
+     * @throws AccessDeniedException if not allowed
+     */
+    @Override
+    public void checkCanExecuteQuery(SystemSecurityContext context)
+    {
+        String nameLog = "user is "+context.getIdentity().getUser();
+        log.log(INFO,nameLog);
+        if(context.getIdentity().getUser().compareTo("test") != 0)
+        {
+            denyExecuteQuery();
+        }
     }
 }

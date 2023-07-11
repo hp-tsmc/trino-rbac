@@ -2,7 +2,7 @@
 
 set -e
 
-version=13
+version=14
 mvn clean package -X -Dcheckstyle.skip
 docker build -t hpdevelop/trino:407-test-${version} .
 docker push hpdevelop/trino:407-test-${version}
